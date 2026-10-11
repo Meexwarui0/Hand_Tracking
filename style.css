@@ -1,0 +1,215 @@
+/* =========================================================
+   Waste to Wonder — minimal hand-drawn line-art theme
+   thick dark outline · flat pastel fills · white paper
+   ========================================================= */
+:root{
+  --ink:#2b2b2b; --paper:#fffdf6; --cream:#fff6dc; --soft:#f3efe2;
+  --green:#b7e08c; --green-deep:#8fd16a; --pink:#ffc2cf; --yellow:#ffe27a;
+  --blue:#cfe8ff; --purple:#e4dcf7; --orange:#ffc27a;
+  --line:3px solid var(--ink);
+  --pop:0 4px 0 var(--ink);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{
+  font-family:'Mali',sans-serif;color:var(--ink);min-height:100vh;
+  background:var(--paper);
+  background-image:radial-gradient(#e9e3cf 1.2px,transparent 1.6px);background-size:22px 22px;
+  display:flex;justify-content:center;padding:18px 14px 40px;
+}
+#app{width:100%;max-width:780px;position:relative}
+.hidden{display:none!important}
+
+/* ---------- Icons ---------- */
+i{font-style:normal;display:inline-block}
+svg.ic{width:1em;height:1em;vertical-align:-.14em;overflow:visible}
+.ico{font-size:3rem;line-height:1}
+
+/* ---------- HUD ---------- */
+#hud{
+  display:flex;justify-content:space-between;align-items:center;gap:8px;flex-wrap:wrap;
+  background:#fff;border:var(--line);border-radius:18px;padding:8px 14px;margin-bottom:16px;box-shadow:var(--pop);
+}
+.brand{font-weight:700}
+.hud-right{display:flex;gap:8px;align-items:center;flex-wrap:wrap}
+.pill{background:#fff;border:2.5px solid var(--ink);border-radius:999px;padding:1px 12px;font-size:.9rem;white-space:nowrap}
+.hearts{font-size:1.3rem;letter-spacing:2px;white-space:nowrap}
+.icon-btn{border:2.5px solid var(--ink);background:var(--yellow);border-radius:50%;width:34px;height:34px;cursor:pointer;font-size:.95rem;color:var(--ink)}
+.icon-btn:hover{background:var(--green)}
+
+/* ---------- Screens & cards ---------- */
+.screen{display:none;animation:pop .35s ease}
+.screen.active{display:block}
+@keyframes pop{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
+
+.card{background:#fff;border:var(--line);border-radius:26px;padding:26px 22px;box-shadow:6px 6px 0 var(--green)}
+.center{text-align:center}
+h2{font-size:1.6rem;margin-bottom:4px;line-height:1.3}
+h3{margin:14px 0 8px}
+.sub{margin-bottom:18px;font-size:.95rem;opacity:.85;line-height:1.5}
+.hint{display:block;margin-top:12px;opacity:.65}
+.title-badge{
+  display:inline-block;background:var(--yellow);border:var(--line);border-radius:999px;
+  padding:4px 34px;margin-bottom:10px;box-shadow:var(--pop);
+}
+
+/* ---------- Buttons ---------- */
+.btn{
+  font-family:inherit;font-weight:700;font-size:1.05rem;color:var(--ink);
+  background:var(--green);border:var(--line);border-radius:999px;box-shadow:var(--pop);
+  padding:9px 28px;cursor:pointer;margin-top:14px;transition:transform .08s,box-shadow .08s,background .2s;
+}
+.btn:hover:not(:disabled){background:var(--green-deep)}
+.btn:active:not(:disabled){transform:translateY(4px);box-shadow:0 0 0 var(--ink)}
+.btn:disabled{opacity:.45;cursor:not-allowed}
+.btn.big{font-size:1.4rem;padding:12px 46px}
+.btn.small{font-size:.9rem;padding:6px 16px;background:var(--cream)}
+.btn.small:hover:not(:disabled){background:var(--yellow)}
+.btn-row{display:flex;gap:12px;flex-wrap:wrap;justify-content:center;margin-top:10px}
+.link{font-family:inherit;background:none;border:none;color:var(--ink);font-weight:700;cursor:pointer;font-size:1rem;padding:2px 4px}
+.link:hover{text-decoration:underline wavy}
+
+/* ---------- Home ---------- */
+.topnav{display:flex;justify-content:space-between;align-items:center;background:#fff;border:var(--line);border-radius:18px;padding:8px 16px;margin-bottom:14px}
+.topnav a{margin-left:16px;color:var(--ink);text-decoration:none;font-size:.9rem;font-weight:700}
+.topnav a:hover{text-decoration:underline wavy}
+.hero{
+  position:relative;text-align:center;padding:40px 16px 24px;border:var(--line);border-radius:26px;overflow:hidden;min-height:540px;
+  background:var(--cream);box-shadow:6px 6px 0 var(--pink);
+}
+.hero > *:not(.doodle){position:relative;z-index:1}
+.doodle{position:absolute;font-size:3.4rem;opacity:.95;animation:bob 3s ease-in-out infinite}
+.d1{top:7%;left:6%;transform:rotate(-14deg)}
+.d2{top:10%;right:7%;font-size:3.8rem;animation-delay:.5s}
+.d3{top:44%;left:4%;font-size:3.6rem;animation-delay:1s}
+.d4{bottom:20%;right:6%;transform:rotate(12deg);animation-delay:1.5s}
+.d5{bottom:26%;left:10%;animation-delay:.8s}
+@media(max-width:560px){.doodle{font-size:2.4rem}.d2,.d3{font-size:2.6rem}}
+.logo{
+  font-weight:700;font-size:clamp(2.4rem,9vw,3.8rem);line-height:1.15;color:var(--green-deep);
+  -webkit-text-stroke:9px var(--ink);paint-order:stroke fill;
+  text-shadow:0 5px 0 var(--ink);letter-spacing:1px;
+}
+.logo.small{font-size:clamp(1.6rem,6vw,2.4rem);-webkit-text-stroke:7px var(--ink)}
+.tagline{display:inline-block;background:#fff;border:var(--line);border-radius:999px;padding:3px 20px;margin:20px 0 8px;font-weight:600}
+.motto{font-size:.95rem;margin-bottom:6px}
+.hero-chars{font-size:5.2rem;margin:8px 0 4px;animation:bob 2.2s ease-in-out infinite;white-space:nowrap}
+.hero-chars i + i{margin-left:6px}
+@keyframes bob{50%{transform:translateY(-8px)}}
+.home-links{
+  display:flex;justify-content:center;gap:10px 18px;margin-top:20px;flex-wrap:wrap;
+  background:#fff;border:var(--line);border-radius:999px;padding:6px 18px;
+}
+
+/* ---------- How to play ---------- */
+.steps{display:flex;flex-wrap:wrap;justify-content:center;gap:26px 18px;margin:20px 0 8px}
+.step{
+  position:relative;flex:0 1 calc(33.333% - 18px);min-width:150px;
+  background:var(--cream);border:var(--line);border-radius:20px;
+  padding:26px 10px 16px;display:flex;flex-direction:column;align-items:center;gap:6px;
+}
+.step:nth-child(2n){background:#f0fadf}
+.step:nth-child(3n){background:#fff0f3}
+.step b{line-height:1.3}
+.step small{opacity:.75;line-height:1.4}
+.num{
+  position:absolute;top:-14px;left:50%;transform:translateX(-50%);
+  background:var(--yellow);border:2.5px solid var(--ink);width:30px;height:30px;border-radius:50%;
+  display:grid;place-items:center;font-weight:700;font-size:.9rem;
+}
+@media(max-width:520px){.step{flex-basis:calc(50% - 12px);min-width:130px}}
+
+/* ---------- Character select ---------- */
+.chars{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;margin:14px 0}
+.char{font-size:4.2rem;background:var(--cream);border:var(--line);border-radius:22px;padding:8px 12px;cursor:pointer;transition:transform .15s;line-height:1}
+.char:hover{transform:translateY(-4px) rotate(-3deg)}
+.char.selected{background:var(--green);box-shadow:var(--pop)}
+.bubble-row{display:flex;gap:12px;align-items:center;margin:16px 0}
+.pet,.me{font-size:2.8rem;line-height:1}
+.bubble{background:var(--cream);border:2.5px solid var(--ink);border-radius:18px;padding:8px 14px;font-size:.9rem;text-align:left;line-height:1.5}
+
+/* ---------- Food Rescue ---------- */
+.two-col{display:grid;grid-template-columns:1.2fr 1fr;gap:18px}
+@media(max-width:600px){.two-col{grid-template-columns:1fr}}
+.food-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}
+.food{font-size:2.5rem;line-height:1;background:var(--cream);border:2.5px solid var(--ink);border-radius:16px;padding:10px 0;cursor:pointer;text-align:center;transition:.15s}
+.food:hover{transform:translateY(-3px)}
+.food.selected{background:var(--green);box-shadow:var(--pop)}
+.food.done{opacity:.22;pointer-events:none;filter:grayscale(1)}
+.panel{background:var(--cream);border:2.5px solid var(--ink);border-radius:20px;padding:14px}
+.food-info{display:flex;gap:12px;align-items:center;font-size:.95rem}
+.food-info > i{font-size:2.8rem;line-height:1}
+.food-info small{opacity:.8;line-height:1.4}
+.act{display:flex;align-items:center;gap:8px;width:100%;margin:10px 0;font-family:inherit;font-weight:700;font-size:1rem;padding:9px 16px;border-radius:999px;border:var(--line);box-shadow:var(--pop);cursor:pointer;color:var(--ink);text-align:left}
+.act i{font-size:1.4rem}
+.act.green{background:var(--green)}
+.act.blue{background:var(--blue)}
+.act.purple{background:var(--purple)}
+.act:active{transform:translateY(4px);box-shadow:none}
+.shake{animation:shake .3s}
+@keyframes shake{25%{transform:translateX(-6px)}75%{transform:translateX(6px)}}
+
+/* ---------- Compost Lab ---------- */
+.compost-options{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-bottom:18px}
+.copt{font-family:inherit;font-size:.95rem;color:var(--ink);background:var(--cream);border:2.5px solid var(--ink);border-radius:18px;padding:10px 6px;cursor:pointer;text-align:center}
+.copt:hover:not(:disabled){background:var(--green)}
+.copt i{display:block;font-size:2.6rem;line-height:1.1}
+.copt:disabled{opacity:.3;cursor:default}
+.bin-row{display:flex;gap:16px;align-items:center;flex-wrap:wrap}
+.bin{min-width:140px;text-align:center;background:var(--cream);border:var(--line);border-radius:22px;padding:10px 14px}
+.bin > i{font-size:3.8rem;line-height:1}
+.bin span{display:block;min-height:2rem;font-size:1.4rem;margin-top:4px;border-top:2px dashed var(--ink);padding-top:4px}
+
+/* ---------- My Garden ---------- */
+.garden-bar{display:flex;gap:8px;margin-bottom:12px;flex-wrap:wrap}
+.garden{
+  display:grid;grid-template-columns:repeat(3,1fr);gap:12px;padding:14px;border:var(--line);border-radius:22px;background:#eaf7d5;
+}
+.plot{
+  aspect-ratio:1.4;display:grid;place-items:center;font-size:2.8rem;line-height:1;cursor:pointer;transition:.15s;
+  background:#e6c9a0;border:2.5px solid var(--ink);border-radius:18px;
+}
+.plot:hover{background:#f0d6b0;transform:translateY(-2px)}
+.plot.grown{animation:bob 1.5s infinite;background:#fff0c4}
+.deco{min-height:40px;font-size:2rem;text-align:center;margin:12px 0;letter-spacing:4px}
+.level-bar{display:flex;align-items:center;gap:10px;margin:10px 0}
+.bar{flex:1;height:16px;background:#fff;border:2.5px solid var(--ink);border-radius:999px;overflow:hidden}
+#xpFill{height:100%;width:0;background:var(--green-deep);border-right:2.5px solid var(--ink);transition:width .4s}
+
+/* ---------- Friends Challenge ---------- */
+.banner{background:var(--yellow);border:var(--line);border-radius:999px;font-weight:700;text-align:center;padding:7px;margin-bottom:14px;box-shadow:var(--pop)}
+.team{display:flex;gap:12px;flex-wrap:wrap;margin:10px 0}
+.member{background:var(--cream);border:2.5px solid var(--ink);border-radius:20px;padding:8px 12px;text-align:center;min-width:88px}
+.member .av{font-size:2.6rem;line-height:1.1}
+.member small{opacity:.8}
+.member.empty{border-style:dashed;font-size:2rem;display:grid;place-items:center;cursor:pointer;background:#fff}
+.member.empty:hover{background:var(--green)}
+.missions{list-style:none}
+.missions li{background:var(--cream);border:2.5px solid var(--ink);border-radius:18px;padding:9px 14px;margin:9px 0;display:flex;gap:10px;align-items:center;cursor:pointer;line-height:1.4}
+.missions li:hover{background:#fff0c4}
+.missions li.done{background:#f0fadf;text-decoration:line-through;opacity:.75}
+.check{flex:none;width:22px;height:22px;border:2.5px solid var(--ink);border-radius:50%;display:grid;place-items:center;background:#fff;font-size:.8rem;font-weight:700}
+.done .check{background:var(--green)}
+
+/* ---------- Leaderboard ---------- */
+.board{list-style:none}
+.board li{display:flex;align-items:center;gap:12px;background:var(--cream);border:2.5px solid var(--ink);border-radius:18px;padding:9px 16px;margin:9px 0}
+.board li:first-child{background:#fff0c4}
+.board .rank{font-weight:700;width:28px;text-align:center;font-size:1.2rem}
+.board .name{display:flex;align-items:center;gap:6px}
+.board .name i{font-size:1.6rem;line-height:1}
+.board .pts{margin-left:auto;font-weight:700}
+.board li.me{background:var(--green);box-shadow:var(--pop)}
+
+/* ---------- Ending ---------- */
+.ending{
+  text-align:center;padding:56px 16px;border:var(--line);border-radius:26px;min-height:440px;
+  background:var(--blue);box-shadow:6px 6px 0 var(--yellow);
+}
+.ending .logo{color:#fff}
+
+/* ---------- Level-up modal ---------- */
+.modal{position:fixed;inset:0;background:rgba(43,43,43,.55);display:grid;place-items:center;z-index:50;padding:16px}
+.modal-box{background:#fff;border:var(--line);border-radius:26px;padding:28px 24px 22px;text-align:center;max-width:330px;width:100%;box-shadow:6px 6px 0 var(--yellow);animation:pop .3s}
+.ribbon{background:var(--yellow);border:var(--line);font-weight:700;font-size:1.3rem;padding:4px 24px;border-radius:999px;margin:-46px auto 12px;display:inline-block}
+.big-ico{font-size:3.8rem;line-height:1.1}
+.badge{margin-top:6px;font-weight:700}
